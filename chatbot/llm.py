@@ -91,7 +91,7 @@ def get_rag_chain():
         ]
     )
 
-    few_shot_prompt = FewShotChatMEssagePromptTemplate(
+    few_shot_prompt = FewShotChatMessagePromptTemplate(
         example_prompt = example_prompt,
         examples = answer_examples
     )
