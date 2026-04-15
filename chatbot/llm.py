@@ -4,7 +4,7 @@ from langchain_anthropic import ChatAnthropic
 from langchain_pinecone import PineconeVectorStore
 from langchain_upstage import UpstageEmbeddings
 from langchain_core.output_parsers import StrOutputParser
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder, FewShotChatMEssagePromptTemplate
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder, FewShotChatMessagePromptTemplate
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.chat_history import BaseChatMessageHistory
