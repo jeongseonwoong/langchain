@@ -109,7 +109,7 @@ def get_rag_chain():
     qa_prompt = ChatPromptTemplate.from_messages(
         [
             ("system", system_prompt),
-            few_shot_prompt # 그동안 어떤식으로 채팅을 했다고 알려준다.
+            few_shot_prompt, # 그동안 어떤식으로 채팅을 했다고 알려준다.
             MessagesPlaceholder("chat_history"),
             ("human", "{input}"),
         ]
