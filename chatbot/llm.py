@@ -109,15 +109,14 @@ def get_rag_chain():
     qa_prompt = ChatPromptTemplate.from_messages(
         [
             ("system", system_prompt),
-            few_shot_prompt, # 그동안 어떤식으로 채팅을 했다고 알려준다.
-            MessagesPlaceholder("chat_history"),
+            few_shot_prompt, # 예제
+            MessagesPlaceholder("examples"),
             ("human", "{input}"),
         ]
     )
 
     history_aware_retriever = get_history_retriever()
     question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
-
     rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
 
     conversational_rag_chain = RunnableWithMessageHistory(
