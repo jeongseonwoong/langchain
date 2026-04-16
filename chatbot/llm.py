@@ -115,6 +115,11 @@ def get_rag_chain():
         ]
     )
 
+    embedding = UpstageEmbeddings(model="solar-embedding-1-large")
+    database = PineconeVectorStore(embedding=embedding, index_name="tax-index")
+    test_docs = database.similarity_search("소득세", k=1)
+    print(f"검색 결과: {test_docs}")
+
     history_aware_retriever = get_history_retriever()
     question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
     rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
